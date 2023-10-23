@@ -26,6 +26,7 @@
     border: 3px solid gray;
     height: 580px;
     width: 1000px;
+    text-align: center;
 }
 .nivel{
     float: left;
@@ -36,6 +37,4 @@
 .stats{
     float: right;
     background: gray;
-    padding-top: 580px;
-    padding-right: 290px;
 }
