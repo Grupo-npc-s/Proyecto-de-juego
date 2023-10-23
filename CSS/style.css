@@ -51,10 +51,7 @@ body {
     background: #087aaf;
     box-shadow:0px 15px 0px 0px #3b1997; 
 }
-:root {
-	colorPrincipal: blue;
-	tamanio: 200px;
-}
+
 p {
 	height: tamanio;
 	background: colorPrincipal;
@@ -109,12 +106,6 @@ p {
     bottom: 0;
     left: 0;
     margin: auto;
-}
-
-div,
-h2,
-a{
-
 }
 .h2{
     padding-bottom:0px;

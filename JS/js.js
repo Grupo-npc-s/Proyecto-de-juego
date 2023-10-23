@@ -1,4 +1,4 @@
-const width= 29;
+const width= 30;
 const grid= document.querySelector(".grid");
 const scoreDisplay = document.getElementById("score");
 let score= 0;
@@ -9,34 +9,36 @@ const squares=[];
     // 3 - power-pellet
     // 4 - empty */
 const layout=[
-    1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-    1,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,1,
-    1,0,1,1,1,1,0,1,1,1,1,0,1,1,1,1,0,1,1,1,1,0,1,1,1,1,0,1,
-    1,0,1,1,1,1,0,1,1,1,1,0,1,1,1,1,0,1,1,1,1,0,1,1,1,1,0,1,
-    1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-    1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,0,1,
-    1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,0,1,
-    1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-    1,0,1,0,1,0,1,0,1,0,1,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,
-    1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-    1,0,1,1,0,1,0,1,1,0,1,0,1,1,0,1,0,1,1,0,1,0,1,1,0,1,0,1,
-    1,0,1,1,0,1,0,1,1,0,1,0,1,1,0,1,0,1,1,0,1,0,1,1,0,1,0,1,
-    1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-    0,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,0,0,
-    1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,0,1,
-    1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-    1,0,1,0,1,0,1,0,1,0,1,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,
-    1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-    1,0,1,1,0,1,0,1,1,0,1,0,1,1,0,1,0,1,1,0,1,0,1,1,0,1,0,1,
-    1,0,1,1,0,1,0,1,1,0,1,0,1,1,0,1,0,1,1,0,1,0,1,1,0,1,0,1,
-    1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-    1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,0,1,
-    1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-    1,0,1,1,1,1,0,1,1,1,1,0,1,1,1,1,0,1,1,1,1,0,1,1,1,1,0,1,
-    1,0,1,1,1,1,0,1,1,1,1,0,1,1,1,1,0,1,1,1,1,0,1,1,1,1,0,1,
-    1,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,1,
-    1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-    4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4
+    1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+    1,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,1,
+    1,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,1,
+    1,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,1,
+    1,0,0,0,0,5,5,5,5,3,3,3,3,0,0,0,0,5,5,5,5,3,3,3,3,0,0,0,0,1,
+    1,5,5,3,3,3,3,0,0,0,0,5,5,5,5,3,3,3,3,0,0,0,0,5,5,5,5,3,3,1,
+    1,0,0,0,0,5,5,5,5,3,3,3,3,0,0,0,0,5,5,5,5,3,3,3,3,0,0,0,0,1,
+    1,5,5,3,3,3,3,0,0,0,0,5,5,5,5,3,3,3,3,0,0,0,0,5,5,5,5,3,3,1,
+    1,0,0,0,0,5,5,5,5,3,3,3,3,0,0,0,0,5,5,5,5,3,3,3,3,0,0,0,0,1,
+    1,5,5,3,3,3,3,0,0,0,0,5,5,5,5,3,3,3,3,0,0,0,0,5,5,5,5,3,3,1,
+    1,0,0,0,0,5,5,5,5,3,3,3,3,0,0,0,0,5,5,5,5,3,3,3,3,0,0,0,0,1,
+    1,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,1,
+    1,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,1,
+    1,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,1,
+    1,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,1,
+    1,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,1,
+    1,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,1,
+    1,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,1,
+    1,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,1,
+    1,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,1,
+    1,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,1,
+    1,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,1,
+    1,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,1,
+    1,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,1,
+    1,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,1,
+    1,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,1,
+    1,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,1,
+    1,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,1,
+    1,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,1,
+    1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
 
 ];
 
@@ -51,58 +53,46 @@ function createPacBoard(){
         squares.push(square);
         //añadiendo las clases según el layout
         if (layout[i]=== 0) {
-            square.classList.add("pac-dot");
+            square.classList.add("rojo");
         } else if (layout[i]=== 1) {
             square.classList.add("wall");
         } else if (layout[i]=== 3) {
-            square.classList.add("power-pellet");
+            square.classList.add("amarillo");
         } else if (layout[i]===4) {
             square.classList.add("selector");
+        } else if(layout[i]===5){
+            square.classList.add("violeta")
         }
     }}
     createPacBoard();
-    let pacmanCurrentIndex=377;
+    let pacmanCurrentIndex=794;
     squares[pacmanCurrentIndex].classList.add("pacman");
     function control(e) {
         squares[pacmanCurrentIndex].classList.remove("pacman");
+    /* 
     if(e.keyCode(52)){
         switch (e.keyCode) {
-            case 37: //izquierda
-                if (pacmanCurrentIndex % width !== 0 && !squares[pacmanCurrentIndex - 1].classList.contains('wall'))
-                    pacmanCurrentIndex -= 1;
-                break;
-            case 38: //arriba
-                if (pacmanCurrentIndex - width >= 0 && !squares[pacmanCurrentIndex - width].classList.contains('wall'))
-                    pacmanCurrentIndex -= width;
-                break;
-            case 39: //derecha
-                if (pacmanCurrentIndex % width < width - 1 && !squares[pacmanCurrentIndex + 1].classList.contains('wall'))
-                    pacmanCurrentIndex += 1;
-                break;
-            case 40: //abajo
-                if (pacmanCurrentIndex + width < width * width && !squares[pacmanCurrentIndex + width].classList.contains('wall'))
-                    pacmanCurrentIndex += width;
-                break;
+            case 37: // izquierda
+            if (pacmanCurrentIndex % width == 0 && !squares[pacmanCurrentIndex - 1].classList.contains('wall'))
+                pacmanCurrentIndex -= 1;
+            break;
+        case 39: // derecha
+            if (pacmanCurrentIndex % width < width - 1 && !squares[pacmanCurrentIndex + 1].classList.contains('wall'))
+                pacmanCurrentIndex += 1;
+            break;
+        
         }
         pacmanCurrentIndex.classList.contains()
     }
-    else{
+    else{ */
         switch (e.keyCode) {
             case 37: //izquierda
                 if (pacmanCurrentIndex % width !== 0 && !squares[pacmanCurrentIndex - 1].classList.contains('wall'))
                     pacmanCurrentIndex -= 1;
                 break;
-            case 38: //arriba
-                if (pacmanCurrentIndex - width >= 0 && !squares[pacmanCurrentIndex - width].classList.contains('wall'))
-                    pacmanCurrentIndex -= width;
-                break;
             case 39: //derecha
                 if (pacmanCurrentIndex % width < width - 1 && !squares[pacmanCurrentIndex + 1].classList.contains('wall'))
                     pacmanCurrentIndex += 1;
-                break;
-            case 40: //abajo
-                if (pacmanCurrentIndex + width < width * width && !squares[pacmanCurrentIndex + width].classList.contains('wall'))
-                    pacmanCurrentIndex += width;
                 break;
         }
     }
@@ -111,14 +101,14 @@ function createPacBoard(){
         squares[pacmanCurrentIndex].classList.add("pacman");
     
         pacDotEaten();
-    }
+
     
     document.addEventListener("keyup", control);
     
     function pacDotEaten() {
-        if (squares[pacmanCurrentIndex].classList.contains('pac-dot')) {
+        if (squares[pacmanCurrentIndex].classList.contains('amarillo')) {
             score++;
             scoreDisplay.textContent = score;
-            squares[pacmanCurrentIndex].classList.remove('pac-dot');
+            squares[pacmanCurrentIndex].classList.remove('amarillo');
         }
     }
