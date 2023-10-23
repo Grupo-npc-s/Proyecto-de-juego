@@ -1,0 +1,44 @@
+.grid{
+    width: 450px;
+    height: 450px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.selector{
+    width: 15px;
+    height: 15px;
+    background: black;
+}
+.grid div{
+    width: 15px;
+    height: 15px;
+}
+.violeta{
+    border: 3px solid rgb(108, 0, 151);
+    box-sizing: border-box;
+    background: rgb(115, 0, 209);
+}
+.rojo{
+    border: 3px solid rgb(209, 0, 174);
+    box-sizing: border-box;
+    background: rgb(255, 32, 181);
+
+}
+.wall{
+    background: #020094;
+}
+.amarillo{
+    border: 3px solid rgb(148, 151, 0);
+    box-sizing: border-box;
+    background: rgb(166, 255, 0);
+}
+.pacman{
+    background-color: black;
+    background: #0010f7;
+    border-radius: 7.5px;
+}
+/* //0 - pac-dots
+    // 1 - wall
+    // 2 - ghost-lair
+    // 3 - power-pellet
+    // 4 - empty */

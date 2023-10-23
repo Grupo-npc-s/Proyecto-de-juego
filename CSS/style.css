@@ -1,13 +1,22 @@
-a{
+.ark{
+    color: #eb0b0b;
+    text-shadow: #640202;
+    text-emphasis-color: #eb0b0b;
+    -ms-text-size-adjust: 150%;
+}
+
+.a{
     display: inline-block;
     text-decoration: none;
-    color: #080708;
+    color: #d1d4d4;
 }
 body {
     text-align: center;
-    background: #484849;
+    background: #000000;
     padding-top: 10px;
-    color:#7F8C8D;
+    color:#d1d4d4;
+    text-emphasis-color: #cdd1d1;
+    font-family:'Arkanoid';
 }
 .botton{
         text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
@@ -28,32 +37,29 @@ body {
         -moz-transition:all 0.2s ease-in-out;
         -o-transition:all 0.2s ease-in-out;
         transition:all 0.2s ease-in-out;
-        margin-top: 0px;
+        margin-top: 200px;
 }
 .violeta{
-    background: #bb25da;
+    background: #eb0b0b;
     box-shadow:0px 15px 0px 0px #640960;
 }
 .rojo{
-    background: #f14f4f;
-    box-shadow:0px 15px 0px 0px #c71919; 
+    background: #eb0f0f;
+    box-shadow:0px 15px 0px 0px #640202; 
 }
 .celeste{
     background: #087aaf;
     box-shadow:0px 15px 0px 0px #3b1997; 
 }
-:root {
-	colorPrincipal: blue;
-	tamanio: 200px;
-}
+
 p {
 	height: tamanio;
 	background: colorPrincipal;
 }
 
 .rojo:hover {
-	background: #087aaf;
-	box-shadow: 0px 15px 0px 0px #7F8C8D;
+	background: #0906a0;
+	box-shadow: 0px 15px 0px 0px #07013b;
 }
 
 .rojo:active {
@@ -101,12 +107,6 @@ p {
     left: 0;
     margin: auto;
 }
-
-div,
-h2,
-a{
-
-}
 .h2{
     padding-bottom:0px;
     width:10px;
@@ -132,7 +132,7 @@ a{
         text-decoration:none;
         font-family:'Arkanoid';
         display:inline-block;
-        color: #000000;
+        color: #ddcfcf;
         background: #7F8C8D;
         padding: 30px 40px;
         white-space: nowrap;
