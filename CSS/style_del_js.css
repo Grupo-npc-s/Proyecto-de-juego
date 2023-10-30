@@ -1,6 +1,6 @@
 .grid{
-    width: 450px;
-    height: 450px;
+    width: 800px;
+    height: 500px;
     display: flex;
     flex-wrap: wrap;
 }
@@ -10,8 +10,8 @@
     background: black;
 }
 .grid div{
-    width: 15px;
-    height: 15px;
+    width: 45px;
+    height: 20px;
 }
 .violeta{
     border: 3px solid rgb(108, 0, 151);
@@ -19,6 +19,8 @@
     background: rgb(115, 0, 209);
 }
 .rojo{
+    width: 100px;
+    height: 100px;
     border: 3px solid rgb(209, 0, 174);
     box-sizing: border-box;
     background: rgb(255, 32, 181);
@@ -28,6 +30,8 @@
     background: #020094;
 }
 .amarillo{
+    width: 100px;
+    height: 100px;
     border: 3px solid rgb(148, 151, 0);
     box-sizing: border-box;
     background: rgb(166, 255, 0);
