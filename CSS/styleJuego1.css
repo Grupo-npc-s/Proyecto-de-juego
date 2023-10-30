@@ -1,0 +1,40 @@
+.botton{
+    text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+    text-align:center;
+    text-decoration:none;
+    font-family:'Arkanoid';
+    display:inline-block;
+    color: #FFF;
+    background: #7F8C8D;
+    padding: 30px 40px;
+    white-space: nowrap;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 50px;
+    margin:15px 5px;
+    -webkit-transition:all 0.2s ease-in-out;
+    -ms-transition:all 0.2s ease-in-out;
+    -moz-transition:all 0.2s ease-in-out;
+    -o-transition:all 0.2s ease-in-out;
+    transition:all 0.2s ease-in-out;
+    margin-top: 0px;
+}
+#tablero{
+    margin-left: 155px;
+    position: absolute;
+    background-color: #000000;
+    border: 3px solid gray;
+    height: 580px;
+    width: 1000px;
+    text-align: center;
+}
+.nivel{
+    float: left;
+    background: #3b2cc0;
+    padding-left: 710px;
+    padding-top: 580px;
+}
+.stats{
+    float: right;
+    background: gray;
+}
