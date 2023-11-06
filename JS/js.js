@@ -1,4 +1,4 @@
-const width= 30;
+const width= 28;
 const grid= document.querySelector(".grid");
 const scoreDisplay = document.getElementById("score");
 let score= 0;
@@ -9,37 +9,29 @@ const squares=[];
     // 3 - power-pellet
     // 4 - empty */
 const layout=[
-    1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-    1,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,1,
-    1,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,1,
-    1,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,1,
-    1,0,0,0,5,5,5,3,3,3,0,0,0,5,5,5,1,
-    1,5,5,5,3,3,3,0,0,0,5,5,5,3,3,3,1,
-    1,0,0,0,5,5,5,3,3,3,0,0,0,5,5,5,1,
-    1,5,5,5,3,3,3,0,0,0,5,5,5,3,3,3,1,
-    1,0,0,0,5,5,5,3,3,3,0,0,0,5,5,5,1,
-    1,5,5,5,3,3,3,0,0,0,5,5,5,3,3,3,1,
-    1,0,0,0,5,5,5,3,3,3,0,0,0,5,5,5,1,
-    1,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,1,
-    1,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,1,
-    1,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,1,
-    1,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,1,
-    1,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,1,
-    1,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,1,
-    1,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,1,
-    1,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,1,
-    1,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,1,
-    1,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,1,
-    1,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,1,
-    1,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,1,
-    1,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,1,
-    1,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,1,
-    1,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,1,
-    1,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,1,
-    1,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,1,
-    1,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,1,
-    1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
-
+    1,1,1,1,1,1,1,1,
+    1,4,4,4,4,4,4,1,
+    1,4,4,4,4,4,4,1,
+    1,4,4,4,4,4,4,1,
+    1,0,5,3,0,5,3,1,
+    1,5,3,0,5,3,0,1,
+    1,3,0,5,3,0,5,1,
+    1,0,5,3,0,5,3,1,
+    1,5,3,0,5,3,0,1,
+    1,4,4,4,4,4,4,1,
+    1,4,4,4,4,4,4,1,
+    1,4,4,4,4,4,4,1,
+    1,4,4,4,4,4,4,1,
+    1,4,4,4,4,4,4,1,
+    1,4,4,4,4,4,4,1,
+    1,4,4,4,4,4,4,1,
+    1,4,4,4,4,4,4,1,
+    1,4,4,4,4,4,4,1,
+    1,4,4,4,4,4,4,1,
+    1,4,4,4,4,4,4,1,
+    1,4,4,4,4,4,4,1,
+    1,4,4,4,4,4,4,1,
+    1,1,1,1,1,1,1,1
 ];
 
 function createPacBoard(){
@@ -65,7 +57,7 @@ function createPacBoard(){
         }
     }}
     createPacBoard();
-    let pacmanCurrentIndex=450;
+    let pacmanCurrentIndex=147;
     squares[pacmanCurrentIndex].classList.add("pacman");
     function control(e) {
         squares[pacmanCurrentIndex].classList.remove("pacman");
@@ -87,12 +79,23 @@ function createPacBoard(){
     else{ */
         switch (e.keyCode) {
             case 37: //izquierda
-                if (pacmanCurrentIndex % width !== 0 && !squares[pacmanCurrentIndex - 1].classList.contains('wall'))
+                if (pacmanCurrentIndex % width !== 0 && !squares[pacmanCurrentIndex - 1].classList.toggle('wall2')){
+                    if(pacmanCurrentIndex>145){
+                        console.log(pacmanCurrentIndex);
+                    } else{
                     pacmanCurrentIndex -= 1;
+                    console.log(pacmanCurrentIndex);
+                    }}
                 break;
             case 39: //derecha
-                if (pacmanCurrentIndex % width < width - 1 && !squares[pacmanCurrentIndex + 1].classList.contains('wall'))
+                if (pacmanCurrentIndex % width < width - 1 && !squares[pacmanCurrentIndex + 1].classList.toggle('wall2')){
+                    if(pacmanCurrentIndex<150){
+                        console.log(pacmanCurrentIndex);
+                    }
+                    else{
                     pacmanCurrentIndex += 1;
+                    console.log(pacmanCurrentIndex);
+                    }}
                 break;
         }
     }

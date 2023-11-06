@@ -3,6 +3,8 @@
     text-shadow: #640202;
     text-emphasis-color: #eb0b0b;
     -ms-text-size-adjust: 150%;
+    text-size-adjust: 150%;
+    -moz-text-size-adjust: 150%;
 }
 
 .a{
