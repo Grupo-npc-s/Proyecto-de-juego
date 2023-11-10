@@ -23,18 +23,48 @@
     margin-left: 155px;
     position: absolute;
     background-color: #000000;
-    border: 3px solid gray;
+    border: 5px solid gray;
     height: 580px;
     width: 1000px;
     text-align: center;
 }
-.nivel{
+.fondo{
     float: left;
     background: #3b2cc0;
-    padding-left: 710px;
+    padding-left: 705px;
     padding-top: 580px;
+    border-right: 5px solid gray;
 }
 .stats{
-    float: right;
+    float: left;
+    background: #000000;
+    width: 290px;
+    height: 580px;
+}
+.highscore{
+    padding-top: 40px;
+    font-size: 1.5em;
+    color: white;
+}
+.score{
+    padding-top: 5px;
+    font-size: 1.5em;
+    color: white;
+}
+.vidas{
+    padding-top: 25px;
+    font-size: 1.5em;
+    color: white;
+}
+body{
+    background: black;
+}
+.nave{
+    float: left;
     background: gray;
+}
+.nivel{
+    padding-top: 25px;
+    color: white;
+    font-size: 2em;
 }
