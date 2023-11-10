@@ -1,4 +1,4 @@
-const width= 30;
+const width= 28;
 const grid= document.querySelector(".grid");
 const scoreDisplay = document.getElementById("score");
 let score= 0;
