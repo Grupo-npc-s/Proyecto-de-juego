@@ -57,7 +57,7 @@ function createPacBoard(){
         }
     }}
     createPacBoard();
-    let pacmanCurrentIndex=147;
+    let pacmanCurrentIndex=163;
     squares[pacmanCurrentIndex].classList.add("pacman");
     function control(e) {
         squares[pacmanCurrentIndex].classList.remove("pacman");
@@ -81,6 +81,7 @@ function createPacBoard(){
         case 37: // izquierda
             if (pacmanCurrentIndex % width !== 0 && !squares[pacmanCurrentIndex - 1].classList.contains('wall')) {
                 pacmanCurrentIndex -= 1;
+                
                 if (pacmanCurrentIndex === 272) {
                     pacmanCurrentIndex = 296;
                 }
