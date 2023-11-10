@@ -25,8 +25,9 @@
     background-color: #000000;
     border: 5px solid gray;
     height: 580px;
-    width: 1000px;
+    width: 1002px;
     text-align: center;
+    display: flex;
 }
 .fondo{
     float: left;
@@ -34,6 +35,9 @@
     padding-left: 705px;
     padding-top: 580px;
     border-right: 5px solid gray;
+    
+    display: flex;
+    flex-wrap: wrap;
 }
 .stats{
     float: left;
@@ -59,12 +63,63 @@
 body{
     background: black;
 }
-.nave{
-    float: left;
-    background: gray;
-}
 .nivel{
     padding-top: 25px;
     color: white;
     font-size: 2em;
+}
+.divVidas{
+    display: flex;
+    margin-left: 12px;
+}
+
+.layout{
+    
+}
+
+
+
+.grid{
+    width: 800px;
+    height: 450px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.selector{
+    width: 15px;
+    height: 15px;
+    background: black;
+}
+.grid div{
+    width: 90px;
+    height: 20px;
+}
+.violeta{
+    border: 3px solid rgb(108, 0, 151);
+    box-sizing: border-box;
+    background: rgb(115, 0, 209);
+}
+.rojo{
+    width: 100px;
+    height: 100px;
+    border: 3px solid rgb(209, 0, 174);
+    box-sizing: border-box;
+    background: rgb(255, 32, 181);
+
+}
+.wall{
+    background: #020094;
+}
+.amarillo{
+    width: 100px;
+    height: 100px;
+    border: 3px solid rgb(148, 151, 0);
+    box-sizing: border-box;
+    background: rgb(166, 255, 0);
+}
+.pacman{
+    background: #0010f7;
+}
+.wall2{
+    background: #0010f7;
 }
