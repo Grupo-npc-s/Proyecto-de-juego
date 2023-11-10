@@ -57,7 +57,7 @@ function createPacBoard(){
         }
     }}
     createPacBoard();
-    let pacmanCurrentIndex=147;
+    let pacmanCurrentIndex=163;
     squares[pacmanCurrentIndex].classList.add("pacman");
     function control(e) {
         squares[pacmanCurrentIndex].classList.remove("pacman");
