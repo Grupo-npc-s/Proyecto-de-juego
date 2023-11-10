@@ -1,4 +1,4 @@
-const width= 28;
+const width= 30;
 const grid= document.querySelector(".grid");
 const scoreDisplay = document.getElementById("score");
 let score= 0;
@@ -18,6 +18,12 @@ const layout=[
     1,3,0,5,3,0,5,1,
     1,0,5,3,0,5,3,1,
     1,5,3,0,5,3,0,1,
+    1,4,4,4,4,4,4,1,
+    1,4,4,4,4,4,4,1,
+    1,4,4,4,4,4,4,1,
+    1,4,4,4,4,4,4,1,
+    1,4,4,4,4,4,4,1,
+    1,4,4,4,4,4,4,1,
     1,4,4,4,4,4,4,1,
     1,4,4,4,4,4,4,1,
     1,4,4,4,4,4,4,1,
@@ -57,7 +63,7 @@ function createPacBoard(){
         }
     }}
     createPacBoard();
-    let pacmanCurrentIndex=163;
+    let pacmanCurrentIndex=211;
     squares[pacmanCurrentIndex].classList.add("pacman");
     function control(e) {
         squares[pacmanCurrentIndex].classList.remove("pacman");
