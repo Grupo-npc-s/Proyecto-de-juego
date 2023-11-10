@@ -81,6 +81,7 @@ function createPacBoard(){
         case 37: // izquierda
             if (pacmanCurrentIndex % width !== 0 && !squares[pacmanCurrentIndex - 1].classList.contains('wall')) {
                 pacmanCurrentIndex -= 1;
+                
                 if (pacmanCurrentIndex === 272) {
                     pacmanCurrentIndex = 296;
                 }
