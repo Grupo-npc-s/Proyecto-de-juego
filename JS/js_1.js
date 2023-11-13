@@ -136,7 +136,7 @@ function createPacBoard(){
                 ball.y - ball.radius <= squares[i].offsetTop + squares[i].offsetHeight
             ) {
                 
-                squares[i].classList.remove("wall");
+                squares[i].classList.remove('0','5','3');
                 score++;
                 scoreDisplay.textContent = score;
                
