@@ -5,6 +5,7 @@
     -ms-text-size-adjust: 150%;
     text-size-adjust: 150%;
     -moz-text-size-adjust: 150%;
+    font-size: 100px;
 }
 
 .a{
@@ -39,7 +40,7 @@ body {
         -moz-transition:all 0.2s ease-in-out;
         -o-transition:all 0.2s ease-in-out;
         transition:all 0.2s ease-in-out;
-        margin-top: 200px;
+        margin-top: 20px;
 }
 .violeta{
     background: #eb0b0b;
@@ -123,6 +124,8 @@ p {
     float:left;
     padding: 1%;
     margin-top: 30px;
+    width: 800px;
+    height: 450px;
 }
 .divizquierda{
     float: right;
@@ -178,8 +181,8 @@ p {
     border: none;
 }
 .grid{
-    width: 420px;
-    height: 420px;
+width: 800px;
+    height: 450px;
     display: flex;
     flex-wrap: wrap;
 }

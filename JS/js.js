@@ -31,6 +31,12 @@ const layout=[
     1,4,4,4,4,4,4,1,
     1,4,4,4,4,4,4,1,
     1,4,4,4,4,4,4,1,
+    1,4,4,4,4,4,4,1,
+    1,4,4,4,4,4,4,1,
+    1,4,4,4,4,4,4,1,
+    1,4,4,4,4,4,4,1,
+    1,4,4,4,4,4,4,1,
+    1,4,4,4,4,4,4,1,
     1,1,1,1,1,1,1,1
 ];
 
@@ -57,7 +63,7 @@ function createPacBoard(){
         }
     }}
     createPacBoard();
-    let pacmanCurrentIndex=147;
+    let pacmanCurrentIndex=211;
     squares[pacmanCurrentIndex].classList.add("pacman");
     function control(e) {
         squares[pacmanCurrentIndex].classList.remove("pacman");
@@ -77,33 +83,31 @@ function createPacBoard(){
         pacmanCurrentIndex.classList.contains()
     }
     else{ */
-        switch (e.keyCode) {
-            case 37: //izquierda
-                if (pacmanCurrentIndex % width !== 0 && !squares[pacmanCurrentIndex - 1].classList.toggle('wall2')){
-                    if(pacmanCurrentIndex>145){
-                        console.log(pacmanCurrentIndex);
-                    } else{
-                    pacmanCurrentIndex -= 1;
-                    console.log(pacmanCurrentIndex);
-                    }}
-                break;
-            case 39: //derecha
-                if (pacmanCurrentIndex % width < width - 1 && !squares[pacmanCurrentIndex + 1].classList.toggle('wall2')){
-                    if(pacmanCurrentIndex<150){
-                        console.log(pacmanCurrentIndex);
-                    }
-                    else{
-                    pacmanCurrentIndex += 1;
-                    console.log(pacmanCurrentIndex);
-                    }}
-                break;
-        }
+    switch (e.keyCode) {
+        case 37: // izquierda
+            if (pacmanCurrentIndex % width !== 0 && !squares[pacmanCurrentIndex - 1].classList.contains('wall')) {
+                pacmanCurrentIndex -= 1;
+                
+                if (pacmanCurrentIndex === 272) {
+                    pacmanCurrentIndex = 296;
+                }
+            }
+            break;
+        case 39: //Derecha
+            if (pacmanCurrentIndex % width < width - 1 && !squares[pacmanCurrentIndex + 1].classList.contains('wall')) {
+                pacmanCurrentIndex += 1;
+                if (pacmanCurrentIndex === 296) {
+                    pacmanCurrentIndex = 272;
+                }
+            }
+            break;
     }
+    
 
     
         squares[pacmanCurrentIndex].classList.add("pacman");
     
-        pacDotEaten();
+        pacDotEaten();}
 
     
     document.addEventListener("keyup", control);
