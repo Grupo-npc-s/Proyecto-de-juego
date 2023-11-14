@@ -78,10 +78,10 @@ function createPacBoard(){
         }
     }}
     createPacBoard();
-    let pacmanCurrentIndex=163;
+    let pacmanCurrentIndex=211;
     squares[pacmanCurrentIndex].classList.add("pacman");
 
-    const ball = new Ball(150, 150, BALL_RADIUS, BallDirs.RIGHT | BallDirs.DOWN, BALL_DEFAULT_SPEED);
+    const ball = new Ball(160, 300, BALL_RADIUS, BallDirs.RIGHT | BallDirs.DOWN, BALL_DEFAULT_SPEED);
 
     function drawBall() {
         const ballElement = document.createElement("div");
