@@ -8,6 +8,25 @@ const squares=[];
     // 2 - ghost-lair
     // 3 - power-pellet
     // 4 - empty */
+    var BallDirs = {
+        NONE: 0,
+        LEFT: 1,
+        RIGHT: 2,
+        UP: 4,
+        DOWN: 8
+      };
+      
+      function Ball(x, y, radius, dir, speed) {
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+        this.dir = dir;
+        this.speed = speed;
+      }
+      
+      var BALL_RADIUS = 6;
+      var BALL_DEFAULT_SPEED = 4;
+//Array del tablero del juego
 const layout=[
     1,1,1,1,1,1,1,1,
     1,4,4,4,4,4,4,1,
@@ -52,19 +71,26 @@ function createPacBoard(){
         //añadiendo las clases según el layout
         if (layout[i]=== 0) {
             square.classList.add("rojo");
+            //ladrillo
         } else if (layout[i]=== 1) {
+            //pared
             square.classList.add("wall");
         } else if (layout[i]=== 3) {
+            //ladrillo
             square.classList.add("amarillo");
         } else if (layout[i]===4) {
+            //fondo
             square.classList.add("selector");
         } else if(layout[i]===5){
+            //ladrillo
             square.classList.add("violeta")
         }
     }}
     createPacBoard();
+    //posición que habilita movimiento
     let pacmanCurrentIndex=211;
     squares[pacmanCurrentIndex].classList.add("pacman");
+    //función control, permite el movimiento
     function control(e) {
         squares[pacmanCurrentIndex].classList.remove("pacman");
     /* 
