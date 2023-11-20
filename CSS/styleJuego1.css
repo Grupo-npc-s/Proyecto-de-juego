@@ -77,7 +77,7 @@ body{
 
 .grid{
     width: 800px;
-    height: 450px;
+    height: 580px;
     display: flex;
     flex-wrap: wrap;
 }
