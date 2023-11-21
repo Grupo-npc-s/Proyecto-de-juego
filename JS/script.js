@@ -8,7 +8,7 @@ const squares=[];
     // 2 - ghost-lair
     // 3 - power-pellet
     // 4 - empty */
-    var BallDirs = {
+    var BallDirs = {    
         NONE: 0,
         LEFT: 1,
         RIGHT: 2,
@@ -94,6 +94,8 @@ function createPacBoard(){
     function control(e) {
         squares[pacmanCurrentIndex].classList.remove("pacman");
 
+    
+        
     switch (e.keyCode) {
         case 37: // izquierda
             if (pacmanCurrentIndex % width !== 0 && !squares[pacmanCurrentIndex - 1].classList.contains('wall')) {
@@ -132,7 +134,7 @@ function createPacBoard(){
     }
 
 
-    const ball = new Ball(160, 300, BALL_RADIUS, BallDirs.RIGHT | BallDirs.DOWN, BALL_DEFAULT_SPEED);
+        const ball = new Ball(160, 300, BALL_RADIUS, BallDirs.RIGHT | BallDirs.DOWN, BALL_DEFAULT_SPEED);
 
     function drawBall() {
         const ballElement = document.createElement("div");
@@ -216,3 +218,5 @@ function createPacBoard(){
 
 drawBall();
 moveBall();
+
+
