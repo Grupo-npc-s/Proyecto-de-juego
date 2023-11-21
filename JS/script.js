@@ -93,22 +93,7 @@ function createPacBoard(){
     //función control, permite el movimiento
     function control(e) {
         squares[pacmanCurrentIndex].classList.remove("pacman");
-    /* 
-    if(e.keyCode(52)){
-        switch (e.keyCode) {
-            case 37: // izquierda
-            if (pacmanCurrentIndex % width == 0 && !squares[pacmanCurrentIndex - 1].classList.contains('wall'))
-                pacmanCurrentIndex -= 1;
-            break;
-        case 39: // derecha
-            if (pacmanCurrentIndex % width < width - 1 && !squares[pacmanCurrentIndex + 1].classList.contains('wall'))
-                pacmanCurrentIndex += 1;
-            break;
-        
-        }
-        pacmanCurrentIndex.classList.contains()
-    }
-    else{ */
+
     switch (e.keyCode) {
         case 37: // izquierda
             if (pacmanCurrentIndex % width !== 0 && !squares[pacmanCurrentIndex - 1].classList.contains('wall')) {
@@ -145,3 +130,89 @@ function createPacBoard(){
             squares[pacmanCurrentIndex].classList.remove('amarillo');
         }
     }
+
+
+    const ball = new Ball(160, 300, BALL_RADIUS, BallDirs.RIGHT | BallDirs.DOWN, BALL_DEFAULT_SPEED);
+
+    function drawBall() {
+        const ballElement = document.createElement("div");
+        ballElement.classList.add("ball");
+        ballElement.style.width = ball.radius * 2 + "px";
+        ballElement.style.height = ball.radius * 2 + "px";
+        ballElement.style.borderRadius = "50%";
+        ballElement.style.backgroundColor = "white";
+        ballElement.style.position = "absolute";
+        ballElement.style.left = ball.x + "px";
+        ballElement.style.top = ball.y + "px";
+        grid.appendChild(ballElement);
+      }
+
+      function moveBall() {
+        if (ball.dir & BallDirs.LEFT) {
+          ball.x -= ball.speed;
+        } else if (ball.dir & BallDirs.RIGHT) {
+          ball.x += ball.speed;
+        }
+      
+        if (ball.dir & BallDirs.UP) {
+          ball.y -= ball.speed;
+        } else if (ball.dir & BallDirs.DOWN) {
+          ball.y += ball.speed;
+        }
+
+    // Verificar colisiones con las paredes
+    if (ball.x - ball.radius <= 0 && ball.dir & BallDirs.LEFT) {
+        ball.dir ^= BallDirs.LEFT;
+    } else if (ball.x + ball.radius >= grid.offsetWidth && ball.dir & BallDirs.RIGHT) {
+        ball.dir ^= BallDirs.RIGHT;
+    }
+
+    if (ball.y - ball.radius <= 0 && ball.dir & BallDirs.UP) {
+        ball.dir ^= BallDirs.UP; 
+    } else if (ball.y + ball.radius >= grid.offsetHeight && ball.dir & BallDirs.DOWN) {
+        ball.dir ^= BallDirs.DOWN; 
+    }
+
+    // Verificar colisiones con el jugador (pacman)
+    if (
+        ball.x + ball.radius >= squares[pacmanCurrentIndex].offsetLeft &&
+        ball.x - ball.radius <= squares[pacmanCurrentIndex].offsetLeft + squares[pacmanCurrentIndex].offsetWidth &&
+        ball.y + ball.radius >= squares[pacmanCurrentIndex].offsetTop &&
+        ball.y - ball.radius <= squares[pacmanCurrentIndex].offsetTop + squares[pacmanCurrentIndex].offsetHeight
+    ) {
+        ball.dir ^= BallDirs.UP; // Invertir el bit UP
+    }
+
+
+    for (let i = 0; i < squares.length; i++) {
+        if (squares[i].classList.contains("wall")) {
+            if (
+                ball.x + ball.radius >= squares[i].offsetLeft &&
+                ball.x - ball.radius <= squares[i].offsetLeft + squares[i].offsetWidth &&
+                ball.y + ball.radius >= squares[i].offsetTop &&
+                ball.y - ball.radius <= squares[i].offsetTop + squares[i].offsetHeight
+            ) {
+                
+                squares[i].classList.remove('0','5','3');
+                score++;
+                scoreDisplay.textContent = score;
+               
+                if (ball.dir & BallDirs.UP) ball.dir ^= BallDirs.UP;
+                if (ball.dir & BallDirs.DOWN) ball.dir ^= BallDirs.DOWN;
+                if (ball.dir & BallDirs.LEFT) ball.dir ^= BallDirs.LEFT;
+                if (ball.dir & BallDirs.RIGHT) ball.dir ^= BallDirs.RIGHT;
+            }
+        }
+    }
+
+    // Mover la bola en la pantalla
+    const ballElement = document.querySelector(".ball");
+    ballElement.style.left = ball.x + "px";
+    ballElement.style.top = ball.y + "px";
+
+    
+    requestAnimationFrame(moveBall);
+}
+
+drawBall();
+moveBall();
